@@ -5,10 +5,8 @@ package merchandising;
 message RequestCreate {
     // @inject_tag: json:"name",validate:"required"
     string name = 1;
-
-
-
 }
+
 message RequestDetails {
     // @inject_tag: json:"name",validate:"required"
     string name = 1;
