@@ -9,7 +9,7 @@ message Row {
     string type = 2;
 
     // @inject_tag: json:"items",validate:"required,dive"
-    repeated RowItems items = 3;
+    RowItems items = 3;
 }
 
 message RowItems {
@@ -17,7 +17,7 @@ message RowItems {
     string type = 1;
 
     // @inject_tag: json:"id",validate:"required"
-    int32 id = 2;
+    repeated int32 ids = 2;
 }
 
 message RequestCreate {
