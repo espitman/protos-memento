@@ -5,15 +5,15 @@ message Row {
     // @inject_tag: json:"title",validate:"required"
     string title = 1;
 
-    // @inject_tag: json:"type",validate:"required"
+    // @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
     string type = 2;
 
-    // @inject_tag: json:"items",validate:"required"
+    // @inject_tag: json:"items",validate:"required,div"
     repeated RowItems items = 3;
 }
 
 message RowItems {
-    // @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
+    // @inject_tag: json:"type",validate:"required,oneof=movie person"
     string type = 1;
 
     // @inject_tag: json:"id",validate:"required"

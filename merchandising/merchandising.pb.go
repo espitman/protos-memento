@@ -36,10 +36,10 @@ type Row struct {
 
 	// @inject_tag: json:"title",validate:"required"
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
-	// @inject_tag: json:"type",validate:"required"
-	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required"`
-	// @inject_tag: json:"items",validate:"required"
-	Items []*RowItems `protobuf:"bytes,3,rep,name=items,proto3" json:"items" validate:"required"`
+	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
+	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
+	// @inject_tag: json:"items",validate:"required,div"
+	Items []*RowItems `protobuf:"bytes,3,rep,name=items,proto3" json:"items" validate:"required,div"`
 }
 
 func (x *Row) Reset() {
@@ -100,8 +100,8 @@ type RowItems struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
-	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
+	// @inject_tag: json:"type",validate:"required,oneof=movie person"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type" validate:"required,oneof=movie person"`
 	// @inject_tag: json:"id",validate:"required"
 	Id int32 `protobuf:"varint,2,opt,name=id,proto3" json:"id" validate:"required"`
 }
