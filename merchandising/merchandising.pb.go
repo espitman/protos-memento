@@ -388,10 +388,14 @@ type Movie struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ID           int32  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Title        string `protobuf:"bytes,2,opt,name=Title,proto3" json:"Title,omitempty"`
-	BackdropPath string `protobuf:"bytes,3,opt,name=Backdrop_path,json=BackdropPath,proto3" json:"Backdrop_path,omitempty"`
-	PosterPath   string `protobuf:"bytes,4,opt,name=Poster_path,json=PosterPath,proto3" json:"Poster_path,omitempty"`
+	// @inject_tag: json:"id"
+	ID int32 `protobuf:"varint,1,opt,name=ID,proto3" json:"id"`
+	// @inject_tag: json:"title"
+	Title string `protobuf:"bytes,2,opt,name=Title,proto3" json:"title"`
+	// @inject_tag: json:"backdrop_path"
+	BackdropPath string `protobuf:"bytes,3,opt,name=Backdrop_path,json=BackdropPath,proto3" json:"backdrop_path"`
+	// @inject_tag: json:"posterPath"
+	PosterPath string `protobuf:"bytes,4,opt,name=Poster_path,json=PosterPath,proto3" json:"posterPath"`
 }
 
 func (x *Movie) Reset() {
