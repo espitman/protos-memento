@@ -1,6 +1,7 @@
 syntax = "proto3";
 package merchandising;
 
+
 message Row {
     // @inject_tag: json:"title"
     string title = 1;
@@ -12,12 +13,22 @@ message Row {
     RowItems items = 3;
 }
 
+message RowDetails {
+    int32 ID = 1;
+    string Title = 2;
+    string Backdrop_path = 3;
+    string Poster_path = 4;
+}
+
 message RowItems {
     // @inject_tag: json:"type",validate:"required,oneof=movie person"
     string type = 1;
 
-    // @inject_tag: json:"id",validate:"required"
+    // @inject_tag: json:"ids",validate:"required"
     repeated int32 ids = 2;
+
+    // @inject_tag: json:"details"
+    repeated RowDetails details = 3;
 }
 
 message RequestCreate {
