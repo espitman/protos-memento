@@ -1,4 +1,4 @@
-package merchandising
+package movie
 
 import "encoding/json"
 
