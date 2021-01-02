@@ -38,8 +38,8 @@ type Row struct {
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
 	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
-	// @inject_tag: json:"items",validate:"required,div"
-	Items []*RowItems `protobuf:"bytes,3,rep,name=items,proto3" json:"items" validate:"required,div"`
+	// @inject_tag: json:"items",validate:"required,dive"
+	Items []*RowItems `protobuf:"bytes,3,rep,name=items,proto3" json:"items" validate:"required,dive"`
 }
 
 func (x *Row) Reset() {
