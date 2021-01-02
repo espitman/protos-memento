@@ -34,8 +34,7 @@ message RequestDetails {
 }
 
 message ResponseDetails {
-    string name = 1;
-    repeated Row rows = 2;
+    string id = 1;
 }
 
 
