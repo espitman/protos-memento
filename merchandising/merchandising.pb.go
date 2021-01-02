@@ -100,8 +100,8 @@ type RowItems struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"type",validate:"required"
-	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type" validate:"required"`
+	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
 	// @inject_tag: json:"id",validate:"required"
 	Id int32 `protobuf:"varint,2,opt,name=id,proto3" json:"id" validate:"required"`
 }

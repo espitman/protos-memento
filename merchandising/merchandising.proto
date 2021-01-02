@@ -13,7 +13,7 @@ message Row {
 }
 
 message RowItems {
-    // @inject_tag: json:"type",validate:"required"
+    // @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
     string type = 1;
 
     // @inject_tag: json:"id",validate:"required"
