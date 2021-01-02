@@ -29,6 +29,129 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type Row struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// @inject_tag: json:"title",validate:"required"
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
+	// @inject_tag: json:"type",validate:"required"
+	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required"`
+	// @inject_tag: json:"items",validate:"required"
+	Items []*RowItems `protobuf:"bytes,3,rep,name=items,proto3" json:"items" validate:"required"`
+}
+
+func (x *Row) Reset() {
+	*x = Row{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Row) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Row) ProtoMessage() {}
+
+func (x *Row) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Row.ProtoReflect.Descriptor instead.
+func (*Row) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Row) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Row) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *Row) GetItems() []*RowItems {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
+type RowItems struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// @inject_tag: json:"type",validate:"required"
+	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type" validate:"required"`
+	// @inject_tag: json:"id",validate:"required"
+	Id int32 `protobuf:"varint,2,opt,name=id,proto3" json:"id" validate:"required"`
+}
+
+func (x *RowItems) Reset() {
+	*x = RowItems{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RowItems) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RowItems) ProtoMessage() {}
+
+func (x *RowItems) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RowItems.ProtoReflect.Descriptor instead.
+func (*RowItems) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *RowItems) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *RowItems) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
 type RequestCreate struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -36,12 +159,14 @@ type RequestCreate struct {
 
 	// @inject_tag: json:"name",validate:"required"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" validate:"required"`
+	// @inject_tag: json:"rows",validate:"required"
+	Rows []*Row `protobuf:"bytes,2,rep,name=rows,proto3" json:"rows" validate:"required"`
 }
 
 func (x *RequestCreate) Reset() {
 	*x = RequestCreate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_merchandising_merchandising_proto_msgTypes[0]
+		mi := &file_merchandising_merchandising_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -54,7 +179,7 @@ func (x *RequestCreate) String() string {
 func (*RequestCreate) ProtoMessage() {}
 
 func (x *RequestCreate) ProtoReflect() protoreflect.Message {
-	mi := &file_merchandising_merchandising_proto_msgTypes[0]
+	mi := &file_merchandising_merchandising_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -67,7 +192,7 @@ func (x *RequestCreate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCreate.ProtoReflect.Descriptor instead.
 func (*RequestCreate) Descriptor() ([]byte, []int) {
-	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{0}
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *RequestCreate) GetName() string {
@@ -75,6 +200,13 @@ func (x *RequestCreate) GetName() string {
 		return x.Name
 	}
 	return ""
+}
+
+func (x *RequestCreate) GetRows() []*Row {
+	if x != nil {
+		return x.Rows
+	}
+	return nil
 }
 
 type RequestDetails struct {
@@ -89,7 +221,7 @@ type RequestDetails struct {
 func (x *RequestDetails) Reset() {
 	*x = RequestDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_merchandising_merchandising_proto_msgTypes[1]
+		mi := &file_merchandising_merchandising_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -102,7 +234,7 @@ func (x *RequestDetails) String() string {
 func (*RequestDetails) ProtoMessage() {}
 
 func (x *RequestDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_merchandising_merchandising_proto_msgTypes[1]
+	mi := &file_merchandising_merchandising_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +247,7 @@ func (x *RequestDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestDetails.ProtoReflect.Descriptor instead.
 func (*RequestDetails) Descriptor() ([]byte, []int) {
-	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{1}
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *RequestDetails) GetName() string {
@@ -136,7 +268,7 @@ type ResponseDetails struct {
 func (x *ResponseDetails) Reset() {
 	*x = ResponseDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_merchandising_merchandising_proto_msgTypes[2]
+		mi := &file_merchandising_merchandising_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -149,7 +281,7 @@ func (x *ResponseDetails) String() string {
 func (*ResponseDetails) ProtoMessage() {}
 
 func (x *ResponseDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_merchandising_merchandising_proto_msgTypes[2]
+	mi := &file_merchandising_merchandising_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +294,7 @@ func (x *ResponseDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResponseDetails.ProtoReflect.Descriptor instead.
 func (*ResponseDetails) Descriptor() ([]byte, []int) {
-	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{2}
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ResponseDetails) GetName() string {
@@ -178,25 +310,37 @@ var file_merchandising_merchandising_proto_rawDesc = []byte{
 	0x0a, 0x21, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2f,
 	0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x12, 0x0d, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69,
-	0x6e, 0x67, 0x22, 0x23, 0x0a, 0x0d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65,
+	0x6e, 0x67, 0x22, 0x5e, 0x0a, 0x03, 0x52, 0x6f, 0x77, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74,
+	0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12,
+	0x12, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74,
+	0x79, 0x70, 0x65, 0x12, 0x2d, 0x0a, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x18, 0x03, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x17, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69,
+	0x6e, 0x67, 0x2e, 0x52, 0x6f, 0x77, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x52, 0x05, 0x69, 0x74, 0x65,
+	0x6d, 0x73, 0x22, 0x2e, 0x0a, 0x08, 0x52, 0x6f, 0x77, 0x49, 0x74, 0x65, 0x6d, 0x73, 0x12, 0x12,
+	0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x79,
+	0x70, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02,
+	0x69, 0x64, 0x22, 0x4b, 0x0a, 0x0d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65,
 	0x61, 0x74, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x24, 0x0a, 0x0e, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x25, 0x0a,
-	0x0f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73,
-	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x32, 0xac, 0x01, 0x0a, 0x14, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e,
-	0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x48, 0x0a,
-	0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x1c, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61,
-	0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64,
-	0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65,
-	0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x07, 0x44, 0x65, 0x74, 0x61, 0x69,
-	0x6c, 0x73, 0x12, 0x1d, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69,
-	0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
-	0x73, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e,
-	0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
-	0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x72, 0x6f, 0x77, 0x73, 0x18,
+	0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64,
+	0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x6f, 0x77, 0x52, 0x04, 0x72, 0x6f, 0x77, 0x73, 0x22,
+	0x24, 0x0a, 0x0e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
+	0x73, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x25, 0x0a, 0x0f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x32, 0xac, 0x01, 0x0a,
+	0x14, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x48, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12,
+	0x1c, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x1e, 0x2e,
+	0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12,
+	0x4a, 0x0a, 0x07, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x1d, 0x2e, 0x6d, 0x65, 0x72,
+	0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63,
+	0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -211,22 +355,26 @@ func file_merchandising_merchandising_proto_rawDescGZIP() []byte {
 	return file_merchandising_merchandising_proto_rawDescData
 }
 
-var file_merchandising_merchandising_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_merchandising_merchandising_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_merchandising_merchandising_proto_goTypes = []interface{}{
-	(*RequestCreate)(nil),   // 0: merchandising.RequestCreate
-	(*RequestDetails)(nil),  // 1: merchandising.RequestDetails
-	(*ResponseDetails)(nil), // 2: merchandising.ResponseDetails
+	(*Row)(nil),             // 0: merchandising.Row
+	(*RowItems)(nil),        // 1: merchandising.RowItems
+	(*RequestCreate)(nil),   // 2: merchandising.RequestCreate
+	(*RequestDetails)(nil),  // 3: merchandising.RequestDetails
+	(*ResponseDetails)(nil), // 4: merchandising.ResponseDetails
 }
 var file_merchandising_merchandising_proto_depIdxs = []int32{
-	0, // 0: merchandising.merchandisingService.Create:input_type -> merchandising.RequestCreate
-	1, // 1: merchandising.merchandisingService.Details:input_type -> merchandising.RequestDetails
-	2, // 2: merchandising.merchandisingService.Create:output_type -> merchandising.ResponseDetails
-	2, // 3: merchandising.merchandisingService.Details:output_type -> merchandising.ResponseDetails
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: merchandising.Row.items:type_name -> merchandising.RowItems
+	0, // 1: merchandising.RequestCreate.rows:type_name -> merchandising.Row
+	2, // 2: merchandising.merchandisingService.Create:input_type -> merchandising.RequestCreate
+	3, // 3: merchandising.merchandisingService.Details:input_type -> merchandising.RequestDetails
+	4, // 4: merchandising.merchandisingService.Create:output_type -> merchandising.ResponseDetails
+	4, // 5: merchandising.merchandisingService.Details:output_type -> merchandising.ResponseDetails
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_merchandising_merchandising_proto_init() }
@@ -236,7 +384,7 @@ func file_merchandising_merchandising_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_merchandising_merchandising_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestCreate); i {
+			switch v := v.(*Row); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -248,7 +396,7 @@ func file_merchandising_merchandising_proto_init() {
 			}
 		}
 		file_merchandising_merchandising_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestDetails); i {
+			switch v := v.(*RowItems); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -260,6 +408,30 @@ func file_merchandising_merchandising_proto_init() {
 			}
 		}
 		file_merchandising_merchandising_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestCreate); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_merchandising_merchandising_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestDetails); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_merchandising_merchandising_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResponseDetails); i {
 			case 0:
 				return &v.state
@@ -278,7 +450,7 @@ func file_merchandising_merchandising_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_merchandising_merchandising_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -1,10 +1,31 @@
 syntax = "proto3";
 package merchandising;
 
+message Row {
+    // @inject_tag: json:"title",validate:"required"
+    string title = 1;
+
+    // @inject_tag: json:"type",validate:"required"
+    string type = 2;
+
+    // @inject_tag: json:"items",validate:"required"
+    repeated RowItems items = 3;
+}
+
+message RowItems {
+    // @inject_tag: json:"type",validate:"required"
+    string type = 1;
+
+    // @inject_tag: json:"id",validate:"required"
+    int32 id = 2;
+}
 
 message RequestCreate {
     // @inject_tag: json:"name",validate:"required"
     string name = 1;
+
+    // @inject_tag: json:"rows",validate:"required"
+    repeated Row rows = 2;
 }
 
 message RequestDetails {
