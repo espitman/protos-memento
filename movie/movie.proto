@@ -1,0 +1,17 @@
+syntax = "proto3";
+package merchandising;
+
+
+
+message RequestDetails {
+    // @inject_tag: json:"id",validate:"required"
+    int32 id = 1;
+}
+
+message ResponseDetails {
+    string name = 1;
+}
+
+service merchandisingService {
+    rpc Details(RequestDetails) returns (ResponseDetails) {}
+}
