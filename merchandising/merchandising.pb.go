@@ -34,8 +34,8 @@ type Row struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"title",validate:"required"
-	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title" validate:"required"`
+	// @inject_tag: json:"title"
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title"`
 	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
 	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
 	// @inject_tag: json:"items",validate:"required,dive"

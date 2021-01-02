@@ -2,7 +2,7 @@ syntax = "proto3";
 package merchandising;
 
 message Row {
-    // @inject_tag: json:"title",validate:"required"
+    // @inject_tag: json:"title"
     string title = 1;
 
     // @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
