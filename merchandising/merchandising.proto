@@ -29,17 +29,6 @@ message RowItems {
 
 }
 
-message ResponseRowItems {
-    // @inject_tag: json:"type",validate:"required,oneof=movie person"
-    string type = 1;
-
-    // @inject_tag: json:"ids",validate:"required"
-    repeated int32 ids = 2;
-
-    // @inject_tag: json:"details"
-    repeated RowDetails details = 3;
-}
-
 message RequestCreate {
     // @inject_tag: json:"name",validate:"required"
     string name = 1;
@@ -55,7 +44,7 @@ message RequestDetails {
 
 message ResponseDetails {
     string name = 1;
-    repeated ResponseRowItems rows = 2;
+    repeated Row rows = 2;
 }
 
 service merchandisingService {
