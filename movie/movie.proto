@@ -1,8 +1,6 @@
 syntax = "proto3";
 package movie;
 
-
-
 message RequestDetails {
     // @inject_tag: json:"id",validate:"required"
     int32 id = 1;
