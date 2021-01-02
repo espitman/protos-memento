@@ -10,6 +10,6 @@ message ResponseDetails {
     string name = 1;
 }
 
-service merchandisingService {
+service movieService {
     rpc Details(RequestDetails) returns (ResponseDetails) {}
 }

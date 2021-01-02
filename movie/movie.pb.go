@@ -133,12 +133,12 @@ var file_movie_movie_proto_rawDesc = []byte{
 	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x22, 0x25, 0x0a, 0x0f,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12,
 	0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e,
-	0x61, 0x6d, 0x65, 0x32, 0x52, 0x0a, 0x14, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69,
-	0x73, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3a, 0x0a, 0x07, 0x44,
-	0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x15, 0x2e, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x2e, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x16, 0x2e,
-	0x6d, 0x6f, 0x76, 0x69, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65,
-	0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x6d, 0x65, 0x32, 0x4a, 0x0a, 0x0c, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x53, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x12, 0x3a, 0x0a, 0x07, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x15,
+	0x2e, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65,
+	0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x16, 0x2e, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -159,8 +159,8 @@ var file_movie_movie_proto_goTypes = []interface{}{
 	(*ResponseDetails)(nil), // 1: movie.ResponseDetails
 }
 var file_movie_movie_proto_depIdxs = []int32{
-	0, // 0: movie.merchandisingService.Details:input_type -> movie.RequestDetails
-	1, // 1: movie.merchandisingService.Details:output_type -> movie.ResponseDetails
+	0, // 0: movie.movieService.Details:input_type -> movie.RequestDetails
+	1, // 1: movie.movieService.Details:output_type -> movie.ResponseDetails
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -227,72 +227,72 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// MerchandisingServiceClient is the client API for MerchandisingService service.
+// MovieServiceClient is the client API for MovieService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type MerchandisingServiceClient interface {
+type MovieServiceClient interface {
 	Details(ctx context.Context, in *RequestDetails, opts ...grpc.CallOption) (*ResponseDetails, error)
 }
 
-type merchandisingServiceClient struct {
+type movieServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewMerchandisingServiceClient(cc grpc.ClientConnInterface) MerchandisingServiceClient {
-	return &merchandisingServiceClient{cc}
+func NewMovieServiceClient(cc grpc.ClientConnInterface) MovieServiceClient {
+	return &movieServiceClient{cc}
 }
 
-func (c *merchandisingServiceClient) Details(ctx context.Context, in *RequestDetails, opts ...grpc.CallOption) (*ResponseDetails, error) {
+func (c *movieServiceClient) Details(ctx context.Context, in *RequestDetails, opts ...grpc.CallOption) (*ResponseDetails, error) {
 	out := new(ResponseDetails)
-	err := c.cc.Invoke(ctx, "/movie.merchandisingService/Details", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/movie.movieService/Details", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// MerchandisingServiceServer is the server API for MerchandisingService service.
-type MerchandisingServiceServer interface {
+// MovieServiceServer is the server API for MovieService service.
+type MovieServiceServer interface {
 	Details(context.Context, *RequestDetails) (*ResponseDetails, error)
 }
 
-// UnimplementedMerchandisingServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedMerchandisingServiceServer struct {
+// UnimplementedMovieServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedMovieServiceServer struct {
 }
 
-func (*UnimplementedMerchandisingServiceServer) Details(context.Context, *RequestDetails) (*ResponseDetails, error) {
+func (*UnimplementedMovieServiceServer) Details(context.Context, *RequestDetails) (*ResponseDetails, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Details not implemented")
 }
 
-func RegisterMerchandisingServiceServer(s *grpc.Server, srv MerchandisingServiceServer) {
-	s.RegisterService(&_MerchandisingService_serviceDesc, srv)
+func RegisterMovieServiceServer(s *grpc.Server, srv MovieServiceServer) {
+	s.RegisterService(&_MovieService_serviceDesc, srv)
 }
 
-func _MerchandisingService_Details_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MovieService_Details_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestDetails)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MerchandisingServiceServer).Details(ctx, in)
+		return srv.(MovieServiceServer).Details(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/movie.merchandisingService/Details",
+		FullMethod: "/movie.movieService/Details",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MerchandisingServiceServer).Details(ctx, req.(*RequestDetails))
+		return srv.(MovieServiceServer).Details(ctx, req.(*RequestDetails))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _MerchandisingService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "movie.merchandisingService",
-	HandlerType: (*MerchandisingServiceServer)(nil),
+var _MovieService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "movie.movieService",
+	HandlerType: (*MovieServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Details",
-			Handler:    _MerchandisingService_Details_Handler,
+			Handler:    _MovieService_Details_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
