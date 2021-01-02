@@ -9,6 +9,8 @@ message RequestDetails {
 message ResponseDetails {
     int32 ID = 1;
     string Title = 2;
+    string Backdrop_path = 3;
+    string Poster_path = 4;
 }
 
 service movieService {
