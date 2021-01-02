@@ -22,3 +22,10 @@ func (t *ResponseDetailsWithMovies) Unmarshal(entry interface{}) ResponseDetails
 	_ = json.Unmarshal(obj, &response)
 	return response
 }
+
+func (t *Movie) Unmarshal(entry interface{}) Movie {
+	obj, _ := json.Marshal(entry)
+	response := Movie{}
+	_ = json.Unmarshal(obj, &response)
+	return response
+}
