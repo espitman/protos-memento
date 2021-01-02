@@ -7,7 +7,8 @@ message RequestDetails {
 }
 
 message ResponseDetails {
-    string name = 1;
+    int32 ID = 1;
+    string Title = 2;
 }
 
 service movieService {
