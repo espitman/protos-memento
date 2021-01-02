@@ -15,3 +15,10 @@ func (t *ResponseDetails) Unmarshal(entry interface{}) ResponseDetails {
 	_ = json.Unmarshal(obj, &response)
 	return response
 }
+
+func (t *ResponseDetailsWithMovies) Unmarshal(entry interface{}) ResponseDetailsWithMovies {
+	obj, _ := json.Marshal(entry)
+	response := ResponseDetailsWithMovies{}
+	_ = json.Unmarshal(obj, &response)
+	return response
+}
