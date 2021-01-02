@@ -159,8 +159,8 @@ type RequestCreate struct {
 
 	// @inject_tag: json:"name",validate:"required"
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name" validate:"required"`
-	// @inject_tag: json:"rows",validate:"required"
-	Rows []*Row `protobuf:"bytes,2,rep,name=rows,proto3" json:"rows" validate:"required"`
+	// @inject_tag: json:"rows",validate:"required,dive"
+	Rows []*Row `protobuf:"bytes,2,rep,name=rows,proto3" json:"rows" validate:"required,dive"`
 }
 
 func (x *RequestCreate) Reset() {

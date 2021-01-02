@@ -24,7 +24,7 @@ message RequestCreate {
     // @inject_tag: json:"name",validate:"required"
     string name = 1;
 
-    // @inject_tag: json:"rows",validate:"required"
+    // @inject_tag: json:"rows",validate:"required,dive"
     repeated Row rows = 2;
 }
 
