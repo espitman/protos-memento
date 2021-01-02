@@ -383,6 +383,261 @@ func (x *ResponseDetails) GetRows() []*Row {
 	return nil
 }
 
+type Movie struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID           int32  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Title        string `protobuf:"bytes,2,opt,name=Title,proto3" json:"Title,omitempty"`
+	BackdropPath string `protobuf:"bytes,3,opt,name=Backdrop_path,json=BackdropPath,proto3" json:"Backdrop_path,omitempty"`
+	PosterPath   string `protobuf:"bytes,4,opt,name=Poster_path,json=PosterPath,proto3" json:"Poster_path,omitempty"`
+}
+
+func (x *Movie) Reset() {
+	*x = Movie{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Movie) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Movie) ProtoMessage() {}
+
+func (x *Movie) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Movie.ProtoReflect.Descriptor instead.
+func (*Movie) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Movie) GetID() int32 {
+	if x != nil {
+		return x.ID
+	}
+	return 0
+}
+
+func (x *Movie) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Movie) GetBackdropPath() string {
+	if x != nil {
+		return x.BackdropPath
+	}
+	return ""
+}
+
+func (x *Movie) GetPosterPath() string {
+	if x != nil {
+		return x.PosterPath
+	}
+	return ""
+}
+
+type RowItemsWithMovies struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Type   string   `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
+	Ids    []int32  `protobuf:"varint,2,rep,packed,name=ids,proto3" json:"ids,omitempty"`
+	Movies []*Movie `protobuf:"bytes,3,rep,name=movies,proto3" json:"movies,omitempty"`
+}
+
+func (x *RowItemsWithMovies) Reset() {
+	*x = RowItemsWithMovies{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RowItemsWithMovies) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RowItemsWithMovies) ProtoMessage() {}
+
+func (x *RowItemsWithMovies) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RowItemsWithMovies.ProtoReflect.Descriptor instead.
+func (*RowItemsWithMovies) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *RowItemsWithMovies) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *RowItemsWithMovies) GetIds() []int32 {
+	if x != nil {
+		return x.Ids
+	}
+	return nil
+}
+
+func (x *RowItemsWithMovies) GetMovies() []*Movie {
+	if x != nil {
+		return x.Movies
+	}
+	return nil
+}
+
+type RowWithMovies struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// @inject_tag: json:"title"
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title"`
+	// @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
+	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type" validate:"required,oneof=carousel movies videos"`
+	// @inject_tag: json:"items",validate:"required,dive"
+	Items *RowItemsWithMovies `protobuf:"bytes,3,opt,name=items,proto3" json:"items" validate:"required,dive"`
+}
+
+func (x *RowWithMovies) Reset() {
+	*x = RowWithMovies{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RowWithMovies) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RowWithMovies) ProtoMessage() {}
+
+func (x *RowWithMovies) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RowWithMovies.ProtoReflect.Descriptor instead.
+func (*RowWithMovies) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *RowWithMovies) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *RowWithMovies) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *RowWithMovies) GetItems() *RowItemsWithMovies {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
+type ResponseDetailsWithMovies struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Name string           `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Rows []*RowWithMovies `protobuf:"bytes,2,rep,name=rows,proto3" json:"rows,omitempty"`
+}
+
+func (x *ResponseDetailsWithMovies) Reset() {
+	*x = ResponseDetailsWithMovies{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_merchandising_merchandising_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResponseDetailsWithMovies) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResponseDetailsWithMovies) ProtoMessage() {}
+
+func (x *ResponseDetailsWithMovies) ProtoReflect() protoreflect.Message {
+	mi := &file_merchandising_merchandising_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResponseDetailsWithMovies.ProtoReflect.Descriptor instead.
+func (*ResponseDetailsWithMovies) Descriptor() ([]byte, []int) {
+	return file_merchandising_merchandising_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ResponseDetailsWithMovies) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ResponseDetailsWithMovies) GetRows() []*RowWithMovies {
+	if x != nil {
+		return x.Rows
+	}
+	return nil
+}
+
 var File_merchandising_merchandising_proto protoreflect.FileDescriptor
 
 var file_merchandising_merchandising_proto_rawDesc = []byte{
@@ -418,18 +673,45 @@ var file_merchandising_merchandising_proto_rawDesc = []byte{
 	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x26, 0x0a, 0x04, 0x72, 0x6f, 0x77, 0x73,
 	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e,
 	0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x6f, 0x77, 0x52, 0x04, 0x72, 0x6f, 0x77, 0x73,
-	0x32, 0xac, 0x01, 0x0a, 0x14, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69,
-	0x6e, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x48, 0x0a, 0x06, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x12, 0x1c, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73,
-	0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e,
-	0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c,
-	0x73, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x07, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x1d,
-	0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x1a, 0x1e, 0x2e,
-	0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x73, 0x0a, 0x05, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x54, 0x69, 0x74,
+	0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x54, 0x69, 0x74, 0x6c, 0x65, 0x12,
+	0x23, 0x0a, 0x0d, 0x42, 0x61, 0x63, 0x6b, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x70, 0x61, 0x74, 0x68,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x42, 0x61, 0x63, 0x6b, 0x64, 0x72, 0x6f, 0x70,
+	0x50, 0x61, 0x74, 0x68, 0x12, 0x1f, 0x0a, 0x0b, 0x50, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x5f, 0x70,
+	0x61, 0x74, 0x68, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x50, 0x6f, 0x73, 0x74, 0x65,
+	0x72, 0x50, 0x61, 0x74, 0x68, 0x22, 0x68, 0x0a, 0x12, 0x52, 0x6f, 0x77, 0x49, 0x74, 0x65, 0x6d,
+	0x73, 0x57, 0x69, 0x74, 0x68, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x74,
+	0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12,
+	0x10, 0x0a, 0x03, 0x69, 0x64, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x05, 0x52, 0x03, 0x69, 0x64,
+	0x73, 0x12, 0x2c, 0x0a, 0x06, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x14, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e,
+	0x67, 0x2e, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x52, 0x06, 0x6d, 0x6f, 0x76, 0x69, 0x65, 0x73, 0x22,
+	0x72, 0x0a, 0x0d, 0x52, 0x6f, 0x77, 0x57, 0x69, 0x74, 0x68, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x73,
+	0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x37, 0x0a, 0x05, 0x69, 0x74,
+	0x65, 0x6d, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x6d, 0x65, 0x72, 0x63,
+	0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x6f, 0x77, 0x49, 0x74, 0x65,
+	0x6d, 0x73, 0x57, 0x69, 0x74, 0x68, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x73, 0x52, 0x05, 0x69, 0x74,
+	0x65, 0x6d, 0x73, 0x22, 0x61, 0x0a, 0x19, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44,
+	0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x57, 0x69, 0x74, 0x68, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x73,
+	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x30, 0x0a, 0x04, 0x72, 0x6f, 0x77, 0x73, 0x18, 0x02, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69,
+	0x6e, 0x67, 0x2e, 0x52, 0x6f, 0x77, 0x57, 0x69, 0x74, 0x68, 0x4d, 0x6f, 0x76, 0x69, 0x65, 0x73,
+	0x52, 0x04, 0x72, 0x6f, 0x77, 0x73, 0x32, 0xac, 0x01, 0x0a, 0x14, 0x6d, 0x65, 0x72, 0x63, 0x68,
+	0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
+	0x48, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x1c, 0x2e, 0x6d, 0x65, 0x72, 0x63,
+	0x68, 0x61, 0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61,
+	0x6e, 0x64, 0x69, 0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x07, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x73, 0x12, 0x1d, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69,
+	0x73, 0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x44, 0x65, 0x74, 0x61,
+	0x69, 0x6c, 0x73, 0x1a, 0x1e, 0x2e, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x64, 0x69, 0x73,
+	0x69, 0x6e, 0x67, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61,
+	0x69, 0x6c, 0x73, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -444,28 +726,35 @@ func file_merchandising_merchandising_proto_rawDescGZIP() []byte {
 	return file_merchandising_merchandising_proto_rawDescData
 }
 
-var file_merchandising_merchandising_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_merchandising_merchandising_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_merchandising_merchandising_proto_goTypes = []interface{}{
-	(*Row)(nil),             // 0: merchandising.Row
-	(*RowDetails)(nil),      // 1: merchandising.RowDetails
-	(*RowItems)(nil),        // 2: merchandising.RowItems
-	(*RequestCreate)(nil),   // 3: merchandising.RequestCreate
-	(*RequestDetails)(nil),  // 4: merchandising.RequestDetails
-	(*ResponseDetails)(nil), // 5: merchandising.ResponseDetails
+	(*Row)(nil),                       // 0: merchandising.Row
+	(*RowDetails)(nil),                // 1: merchandising.RowDetails
+	(*RowItems)(nil),                  // 2: merchandising.RowItems
+	(*RequestCreate)(nil),             // 3: merchandising.RequestCreate
+	(*RequestDetails)(nil),            // 4: merchandising.RequestDetails
+	(*ResponseDetails)(nil),           // 5: merchandising.ResponseDetails
+	(*Movie)(nil),                     // 6: merchandising.Movie
+	(*RowItemsWithMovies)(nil),        // 7: merchandising.RowItemsWithMovies
+	(*RowWithMovies)(nil),             // 8: merchandising.RowWithMovies
+	(*ResponseDetailsWithMovies)(nil), // 9: merchandising.ResponseDetailsWithMovies
 }
 var file_merchandising_merchandising_proto_depIdxs = []int32{
 	2, // 0: merchandising.Row.items:type_name -> merchandising.RowItems
 	0, // 1: merchandising.RequestCreate.rows:type_name -> merchandising.Row
 	0, // 2: merchandising.ResponseDetails.rows:type_name -> merchandising.Row
-	3, // 3: merchandising.merchandisingService.Create:input_type -> merchandising.RequestCreate
-	4, // 4: merchandising.merchandisingService.Details:input_type -> merchandising.RequestDetails
-	5, // 5: merchandising.merchandisingService.Create:output_type -> merchandising.ResponseDetails
-	5, // 6: merchandising.merchandisingService.Details:output_type -> merchandising.ResponseDetails
-	5, // [5:7] is the sub-list for method output_type
-	3, // [3:5] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	6, // 3: merchandising.RowItemsWithMovies.movies:type_name -> merchandising.Movie
+	7, // 4: merchandising.RowWithMovies.items:type_name -> merchandising.RowItemsWithMovies
+	8, // 5: merchandising.ResponseDetailsWithMovies.rows:type_name -> merchandising.RowWithMovies
+	3, // 6: merchandising.merchandisingService.Create:input_type -> merchandising.RequestCreate
+	4, // 7: merchandising.merchandisingService.Details:input_type -> merchandising.RequestDetails
+	5, // 8: merchandising.merchandisingService.Create:output_type -> merchandising.ResponseDetails
+	5, // 9: merchandising.merchandisingService.Details:output_type -> merchandising.ResponseDetails
+	8, // [8:10] is the sub-list for method output_type
+	6, // [6:8] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_merchandising_merchandising_proto_init() }
@@ -546,6 +835,54 @@ func file_merchandising_merchandising_proto_init() {
 				return nil
 			}
 		}
+		file_merchandising_merchandising_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Movie); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_merchandising_merchandising_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RowItemsWithMovies); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_merchandising_merchandising_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RowWithMovies); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_merchandising_merchandising_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ResponseDetailsWithMovies); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -553,7 +890,7 @@ func file_merchandising_merchandising_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_merchandising_merchandising_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

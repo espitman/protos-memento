@@ -47,6 +47,36 @@ message ResponseDetails {
     repeated Row rows = 2;
 }
 
+message Movie {
+    int32 ID = 1;
+    string Title = 2;
+    string Backdrop_path = 3;
+    string Poster_path = 4;
+}
+
+message RowItemsWithMovies {
+    string type = 1;
+    repeated int32 ids = 2;
+    repeated Movie movies = 3;
+}
+
+message RowWithMovies {
+    // @inject_tag: json:"title"
+    string title = 1;
+
+    // @inject_tag: json:"type",validate:"required,oneof=carousel movies videos"
+    string type = 2;
+
+    // @inject_tag: json:"items",validate:"required,dive"
+    RowItemsWithMovies items = 3;
+
+}
+
+message ResponseDetailsWithMovies {
+    string name = 1;
+    repeated RowWithMovies rows = 2;
+}
+
 service merchandisingService {
     rpc Create(RequestCreate) returns (ResponseDetails) {}
     rpc Details(RequestDetails) returns (ResponseDetails) {}
