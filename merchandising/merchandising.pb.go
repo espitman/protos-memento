@@ -394,8 +394,8 @@ type Movie struct {
 	Title string `protobuf:"bytes,2,opt,name=Title,proto3" json:"title"`
 	// @inject_tag: json:"backdrop_path"
 	BackdropPath string `protobuf:"bytes,3,opt,name=Backdrop_path,json=BackdropPath,proto3" json:"backdrop_path"`
-	// @inject_tag: json:"posterPath"
-	PosterPath string `protobuf:"bytes,4,opt,name=Poster_path,json=PosterPath,proto3" json:"posterPath"`
+	// @inject_tag: json:"poster_path"
+	PosterPath string `protobuf:"bytes,4,opt,name=Poster_path,json=PosterPath,proto3" json:"poster_path"`
 }
 
 func (x *Movie) Reset() {

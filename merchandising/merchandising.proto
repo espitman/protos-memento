@@ -54,7 +54,7 @@ message Movie {
     string Title = 2;
      // @inject_tag: json:"backdrop_path"
     string Backdrop_path = 3;
-     // @inject_tag: json:"posterPath"
+     // @inject_tag: json:"poster_path"
     string Poster_path = 4;
 }
 
