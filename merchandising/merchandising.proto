@@ -38,8 +38,6 @@ message ResponseDetails {
     repeated Row rows = 2;
 }
 
-
-
 service merchandisingService {
     rpc Create(RequestCreate) returns (ResponseDetails) {}
     rpc Details(RequestDetails) returns (ResponseDetails) {}
