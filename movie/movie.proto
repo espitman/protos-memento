@@ -1,16 +1,27 @@
 syntax = "proto3";
 package movie;
 
+message Genres {
+    int32 id = 1;
+    string name = 2;
+}
+
 message RequestDetails {
     // @inject_tag: json:"id",validate:"required"
     int32 id = 1;
 }
 
 message ResponseDetails {
+    // @inject_tag: json:"id"
     int32 ID = 1;
+    // @inject_tag: json:"title"
     string Title = 2;
+    // @inject_tag: json:"backdrop_path"
     string Backdrop_path = 3;
+    // @inject_tag: json:"poster_path"
     string Poster_path = 4;
+    // @inject_tag: json:"genres"
+    repeated Genres Genres = 5;
 }
 
 service movieService {

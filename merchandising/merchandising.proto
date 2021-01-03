@@ -48,14 +48,16 @@ message ResponseDetails {
 }
 
 message Movie {
-     // @inject_tag: json:"id"
+    // @inject_tag: json:"id"
     int32 ID = 1;
     // @inject_tag: json:"title"
     string Title = 2;
-     // @inject_tag: json:"backdrop_path"
+    // @inject_tag: json:"backdrop_path"
     string Backdrop_path = 3;
-     // @inject_tag: json:"poster_path"
+    // @inject_tag: json:"poster_path"
     string Poster_path = 4;
+    // @inject_tag: json:"genres"
+    repeated Genres Genres = 5;
 }
 
 message RowItemsWithMovies {
@@ -74,6 +76,11 @@ message RowWithMovies {
     // @inject_tag: json:"items",validate:"required,dive"
     RowItemsWithMovies items = 3;
 
+}
+
+message Genres {
+    int32 id = 1;
+    string name = 2;
 }
 
 message ResponseDetailsWithMovies {
