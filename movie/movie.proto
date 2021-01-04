@@ -33,6 +33,28 @@ message Image {
     string file_path =1;
 }
 
+message TMDBCredits {
+    repeated TMDBCast cast = 1;
+    repeated TMDBCrew crew = 2; 
+}
+
+message TMDBCast {
+    int32 id = 1;
+    int32 gender = 2;
+    string name = 3;
+    string original_name = 4;
+    string profile_path = 5;
+    string character = 6;
+}
+
+message TMDBCrew {
+    int32 id = 1;
+    int32 gender = 2;
+    string name = 3;
+    string original_name = 4;
+    string job = 5;
+}
+
 message RequestDetails {
     // @inject_tag: json:"id",validate:"required"
     int32 id = 1;
@@ -60,6 +82,7 @@ message TMDBDetails {
     string status = 16;
     string tagline = 17;
     Images images = 18;
+    TMDBCredits credits = 19;
 }
 
 
