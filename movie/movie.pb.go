@@ -381,8 +381,7 @@ type Credits struct {
 	unknownFields protoimpl.UnknownFields
 
 	Cast []*Person `protobuf:"bytes,1,rep,name=cast,proto3" json:"cast,omitempty"`
-	// @inject_tag: json:"-"
-	Crew []*Person `protobuf:"bytes,2,rep,name=crew,proto3" json:"-"`
+	Crew []*Person `protobuf:"bytes,2,rep,name=crew,proto3" json:"crew,omitempty"`
 }
 
 func (x *Credits) Reset() {
