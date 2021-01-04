@@ -441,8 +441,8 @@ type Person struct {
 	Name         string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	OriginalName string `protobuf:"bytes,4,opt,name=original_name,json=originalName,proto3" json:"original_name,omitempty"`
 	Image        string `protobuf:"bytes,5,opt,name=image,proto3" json:"image,omitempty"`
-	// @inject_tag: json:"-"
-	ProfilePath string `protobuf:"bytes,6,opt,name=profile_path,json=profilePath,proto3" json:"-"`
+	// @inject_tag: json:",omitempty"
+	ProfilePath string `protobuf:"bytes,6,opt,name=profile_path,json=profilePath,proto3" json:",omitempty"`
 	Character   string `protobuf:"bytes,7,opt,name=character,proto3" json:"character,omitempty"`
 	Job         string `protobuf:"bytes,8,opt,name=job,proto3" json:"job,omitempty"`
 }
