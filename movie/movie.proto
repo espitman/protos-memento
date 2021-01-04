@@ -35,26 +35,21 @@ message Image {
 
 
 message Credits {
-    repeated Cast cast = 1;
-    repeated Crew crew = 2; 
+    repeated Person cast = 1;
+    repeated Person crew = 2; 
 }
 
-message Cast {
+message Person {
     int32 id = 1;
     int32 gender = 2;
     string name = 3;
     string original_name = 4;
     string image = 5;
-    string character = 6;
+    string profile_path = 6;
+    string character = 7;
+    string job = 8;
 }
 
-message Crew {
-    int32 id = 1;
-    int32 gender = 2;
-    string name = 3;
-    string original_name = 4;
-    string job = 5;
-}
 
 message RequestDetails {
     // @inject_tag: json:"id",validate:"required"

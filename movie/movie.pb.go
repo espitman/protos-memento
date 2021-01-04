@@ -380,8 +380,8 @@ type Credits struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Cast []*Cast `protobuf:"bytes,1,rep,name=cast,proto3" json:"cast,omitempty"`
-	Crew []*Crew `protobuf:"bytes,2,rep,name=crew,proto3" json:"crew,omitempty"`
+	Cast []*Person `protobuf:"bytes,1,rep,name=cast,proto3" json:"cast,omitempty"`
+	Crew []*Person `protobuf:"bytes,2,rep,name=crew,proto3" json:"crew,omitempty"`
 }
 
 func (x *Credits) Reset() {
@@ -416,21 +416,21 @@ func (*Credits) Descriptor() ([]byte, []int) {
 	return file_movie_movie_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *Credits) GetCast() []*Cast {
+func (x *Credits) GetCast() []*Person {
 	if x != nil {
 		return x.Cast
 	}
 	return nil
 }
 
-func (x *Credits) GetCrew() []*Crew {
+func (x *Credits) GetCrew() []*Person {
 	if x != nil {
 		return x.Crew
 	}
 	return nil
 }
 
-type Cast struct {
+type Person struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -440,11 +440,13 @@ type Cast struct {
 	Name         string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	OriginalName string `protobuf:"bytes,4,opt,name=original_name,json=originalName,proto3" json:"original_name,omitempty"`
 	Image        string `protobuf:"bytes,5,opt,name=image,proto3" json:"image,omitempty"`
-	Character    string `protobuf:"bytes,6,opt,name=character,proto3" json:"character,omitempty"`
+	ProfilePath  string `protobuf:"bytes,6,opt,name=profile_path,json=profilePath,proto3" json:"profile_path,omitempty"`
+	Character    string `protobuf:"bytes,7,opt,name=character,proto3" json:"character,omitempty"`
+	Job          string `protobuf:"bytes,8,opt,name=job,proto3" json:"job,omitempty"`
 }
 
-func (x *Cast) Reset() {
-	*x = Cast{}
+func (x *Person) Reset() {
+	*x = Person{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_movie_movie_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -452,13 +454,13 @@ func (x *Cast) Reset() {
 	}
 }
 
-func (x *Cast) String() string {
+func (x *Person) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Cast) ProtoMessage() {}
+func (*Person) ProtoMessage() {}
 
-func (x *Cast) ProtoReflect() protoreflect.Message {
+func (x *Person) ProtoReflect() protoreflect.Message {
 	mi := &file_movie_movie_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -470,126 +472,61 @@ func (x *Cast) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Cast.ProtoReflect.Descriptor instead.
-func (*Cast) Descriptor() ([]byte, []int) {
+// Deprecated: Use Person.ProtoReflect.Descriptor instead.
+func (*Person) Descriptor() ([]byte, []int) {
 	return file_movie_movie_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *Cast) GetId() int32 {
+func (x *Person) GetId() int32 {
 	if x != nil {
 		return x.Id
 	}
 	return 0
 }
 
-func (x *Cast) GetGender() int32 {
+func (x *Person) GetGender() int32 {
 	if x != nil {
 		return x.Gender
 	}
 	return 0
 }
 
-func (x *Cast) GetName() string {
+func (x *Person) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *Cast) GetOriginalName() string {
+func (x *Person) GetOriginalName() string {
 	if x != nil {
 		return x.OriginalName
 	}
 	return ""
 }
 
-func (x *Cast) GetImage() string {
+func (x *Person) GetImage() string {
 	if x != nil {
 		return x.Image
 	}
 	return ""
 }
 
-func (x *Cast) GetCharacter() string {
+func (x *Person) GetProfilePath() string {
+	if x != nil {
+		return x.ProfilePath
+	}
+	return ""
+}
+
+func (x *Person) GetCharacter() string {
 	if x != nil {
 		return x.Character
 	}
 	return ""
 }
 
-type Crew struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id           int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Gender       int32  `protobuf:"varint,2,opt,name=gender,proto3" json:"gender,omitempty"`
-	Name         string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	OriginalName string `protobuf:"bytes,4,opt,name=original_name,json=originalName,proto3" json:"original_name,omitempty"`
-	Job          string `protobuf:"bytes,5,opt,name=job,proto3" json:"job,omitempty"`
-}
-
-func (x *Crew) Reset() {
-	*x = Crew{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_movie_movie_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Crew) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Crew) ProtoMessage() {}
-
-func (x *Crew) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_movie_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Crew.ProtoReflect.Descriptor instead.
-func (*Crew) Descriptor() ([]byte, []int) {
-	return file_movie_movie_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *Crew) GetId() int32 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *Crew) GetGender() int32 {
-	if x != nil {
-		return x.Gender
-	}
-	return 0
-}
-
-func (x *Crew) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *Crew) GetOriginalName() string {
-	if x != nil {
-		return x.OriginalName
-	}
-	return ""
-}
-
-func (x *Crew) GetJob() string {
+func (x *Person) GetJob() string {
 	if x != nil {
 		return x.Job
 	}
@@ -610,7 +547,7 @@ type RequestDetails struct {
 func (x *RequestDetails) Reset() {
 	*x = RequestDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_movie_movie_proto_msgTypes[9]
+		mi := &file_movie_movie_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -623,7 +560,7 @@ func (x *RequestDetails) String() string {
 func (*RequestDetails) ProtoMessage() {}
 
 func (x *RequestDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_movie_proto_msgTypes[9]
+	mi := &file_movie_movie_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -636,7 +573,7 @@ func (x *RequestDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestDetails.ProtoReflect.Descriptor instead.
 func (*RequestDetails) Descriptor() ([]byte, []int) {
-	return file_movie_movie_proto_rawDescGZIP(), []int{9}
+	return file_movie_movie_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *RequestDetails) GetId() int32 {
@@ -682,7 +619,7 @@ type ResponseDetails struct {
 func (x *ResponseDetails) Reset() {
 	*x = ResponseDetails{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_movie_movie_proto_msgTypes[10]
+		mi := &file_movie_movie_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -695,7 +632,7 @@ func (x *ResponseDetails) String() string {
 func (*ResponseDetails) ProtoMessage() {}
 
 func (x *ResponseDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_movie_movie_proto_msgTypes[10]
+	mi := &file_movie_movie_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -708,7 +645,7 @@ func (x *ResponseDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResponseDetails.ProtoReflect.Descriptor instead.
 func (*ResponseDetails) Descriptor() ([]byte, []int) {
-	return file_movie_movie_proto_rawDescGZIP(), []int{10}
+	return file_movie_movie_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ResponseDetails) GetId() int32 {
@@ -877,28 +814,24 @@ var file_movie_movie_proto_rawDesc = []byte{
 	0x65, 0x52, 0x07, 0x70, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x73, 0x22, 0x24, 0x0a, 0x05, 0x49, 0x6d,
 	0x61, 0x67, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x66, 0x69, 0x6c, 0x65, 0x5f, 0x70, 0x61, 0x74, 0x68,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x66, 0x69, 0x6c, 0x65, 0x50, 0x61, 0x74, 0x68,
-	0x22, 0x4b, 0x0a, 0x07, 0x43, 0x72, 0x65, 0x64, 0x69, 0x74, 0x73, 0x12, 0x1f, 0x0a, 0x04, 0x63,
-	0x61, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x6d, 0x6f, 0x76, 0x69,
-	0x65, 0x2e, 0x43, 0x61, 0x73, 0x74, 0x52, 0x04, 0x63, 0x61, 0x73, 0x74, 0x12, 0x1f, 0x0a, 0x04,
-	0x63, 0x72, 0x65, 0x77, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0b, 0x2e, 0x6d, 0x6f, 0x76,
-	0x69, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x77, 0x52, 0x04, 0x63, 0x72, 0x65, 0x77, 0x22, 0x9b, 0x01,
-	0x0a, 0x04, 0x43, 0x61, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x12,
-	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x12, 0x23, 0x0a, 0x0d, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x5f, 0x6e,
-	0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6f, 0x72, 0x69, 0x67, 0x69,
-	0x6e, 0x61, 0x6c, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x69, 0x6d, 0x61, 0x67, 0x65,
-	0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x12, 0x1c, 0x0a,
-	0x09, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x09, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63, 0x74, 0x65, 0x72, 0x22, 0x79, 0x0a, 0x04, 0x43,
-	0x72, 0x65, 0x77, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52,
-	0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x05, 0x52, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e,
-	0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
-	0x23, 0x0a, 0x0d, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
-	0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c,
-	0x4e, 0x61, 0x6d, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x6a, 0x6f, 0x62, 0x18, 0x05, 0x20, 0x01, 0x28,
+	0x22, 0x4f, 0x0a, 0x07, 0x43, 0x72, 0x65, 0x64, 0x69, 0x74, 0x73, 0x12, 0x21, 0x0a, 0x04, 0x63,
+	0x61, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x6d, 0x6f, 0x76, 0x69,
+	0x65, 0x2e, 0x50, 0x65, 0x72, 0x73, 0x6f, 0x6e, 0x52, 0x04, 0x63, 0x61, 0x73, 0x74, 0x12, 0x21,
+	0x0a, 0x04, 0x63, 0x72, 0x65, 0x77, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x6d,
+	0x6f, 0x76, 0x69, 0x65, 0x2e, 0x50, 0x65, 0x72, 0x73, 0x6f, 0x6e, 0x52, 0x04, 0x63, 0x72, 0x65,
+	0x77, 0x22, 0xd2, 0x01, 0x0a, 0x06, 0x50, 0x65, 0x72, 0x73, 0x6f, 0x6e, 0x12, 0x0e, 0x0a, 0x02,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06,
+	0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x67, 0x65,
+	0x6e, 0x64, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x23, 0x0a, 0x0d, 0x6f, 0x72, 0x69, 0x67,
+	0x69, 0x6e, 0x61, 0x6c, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x0c, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a,
+	0x05, 0x69, 0x6d, 0x61, 0x67, 0x65, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x69, 0x6d,
+	0x61, 0x67, 0x65, 0x12, 0x21, 0x0a, 0x0c, 0x70, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x5f, 0x70,
+	0x61, 0x74, 0x68, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x70, 0x72, 0x6f, 0x66, 0x69,
+	0x6c, 0x65, 0x50, 0x61, 0x74, 0x68, 0x12, 0x1c, 0x0a, 0x09, 0x63, 0x68, 0x61, 0x72, 0x61, 0x63,
+	0x74, 0x65, 0x72, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x68, 0x61, 0x72, 0x61,
+	0x63, 0x74, 0x65, 0x72, 0x12, 0x10, 0x0a, 0x03, 0x6a, 0x6f, 0x62, 0x18, 0x08, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x03, 0x6a, 0x6f, 0x62, 0x22, 0x34, 0x0a, 0x0e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x66, 0x75, 0x6c, 0x6c,
@@ -967,7 +900,7 @@ func file_movie_movie_proto_rawDescGZIP() []byte {
 	return file_movie_movie_proto_rawDescData
 }
 
-var file_movie_movie_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_movie_movie_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_movie_movie_proto_goTypes = []interface{}{
 	(*Genres)(nil),          // 0: movie.Genres
 	(*Companies)(nil),       // 1: movie.Companies
@@ -976,24 +909,23 @@ var file_movie_movie_proto_goTypes = []interface{}{
 	(*Images)(nil),          // 4: movie.Images
 	(*Image)(nil),           // 5: movie.Image
 	(*Credits)(nil),         // 6: movie.Credits
-	(*Cast)(nil),            // 7: movie.Cast
-	(*Crew)(nil),            // 8: movie.Crew
-	(*RequestDetails)(nil),  // 9: movie.RequestDetails
-	(*ResponseDetails)(nil), // 10: movie.ResponseDetails
+	(*Person)(nil),          // 7: movie.Person
+	(*RequestDetails)(nil),  // 8: movie.RequestDetails
+	(*ResponseDetails)(nil), // 9: movie.ResponseDetails
 }
 var file_movie_movie_proto_depIdxs = []int32{
 	5,  // 0: movie.Images.backdrops:type_name -> movie.Image
 	5,  // 1: movie.Images.posters:type_name -> movie.Image
-	7,  // 2: movie.Credits.cast:type_name -> movie.Cast
-	8,  // 3: movie.Credits.crew:type_name -> movie.Crew
+	7,  // 2: movie.Credits.cast:type_name -> movie.Person
+	7,  // 3: movie.Credits.crew:type_name -> movie.Person
 	0,  // 4: movie.ResponseDetails.genres:type_name -> movie.Genres
 	1,  // 5: movie.ResponseDetails.production_companies:type_name -> movie.Companies
 	2,  // 6: movie.ResponseDetails.production_countries:type_name -> movie.Countries
 	3,  // 7: movie.ResponseDetails.spoken_languages:type_name -> movie.Languages
 	4,  // 8: movie.ResponseDetails.images:type_name -> movie.Images
 	6,  // 9: movie.ResponseDetails.credits:type_name -> movie.Credits
-	9,  // 10: movie.movieService.Details:input_type -> movie.RequestDetails
-	10, // 11: movie.movieService.Details:output_type -> movie.ResponseDetails
+	8,  // 10: movie.movieService.Details:input_type -> movie.RequestDetails
+	9,  // 11: movie.movieService.Details:output_type -> movie.ResponseDetails
 	11, // [11:12] is the sub-list for method output_type
 	10, // [10:11] is the sub-list for method input_type
 	10, // [10:10] is the sub-list for extension type_name
@@ -1092,7 +1024,7 @@ func file_movie_movie_proto_init() {
 			}
 		}
 		file_movie_movie_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Cast); i {
+			switch v := v.(*Person); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1104,18 +1036,6 @@ func file_movie_movie_proto_init() {
 			}
 		}
 		file_movie_movie_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Crew); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_movie_movie_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RequestDetails); i {
 			case 0:
 				return &v.state
@@ -1127,7 +1047,7 @@ func file_movie_movie_proto_init() {
 				return nil
 			}
 		}
-		file_movie_movie_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+		file_movie_movie_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ResponseDetails); i {
 			case 0:
 				return &v.state
@@ -1146,7 +1066,7 @@ func file_movie_movie_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_movie_movie_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
