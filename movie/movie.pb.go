@@ -615,8 +615,8 @@ type ResponseDetails struct {
 	Status              string       `protobuf:"bytes,16,opt,name=status,proto3" json:"status,omitempty"`
 	Tagline             string       `protobuf:"bytes,17,opt,name=tagline,proto3" json:"tagline,omitempty"`
 	Images              *Images      `protobuf:"bytes,18,opt,name=images,proto3" json:"images,omitempty"`
-	// @inject_tag: json:"-"
-	Credits *Credits  `protobuf:"bytes,19,opt,name=credits,proto3" json:"-"`
+	// @inject_tag: json:",omitempty"
+	Credits *Credits  `protobuf:"bytes,19,opt,name=credits,proto3" json:",omitempty"`
 	Cast    []*Person `protobuf:"bytes,20,rep,name=cast,proto3" json:"cast,omitempty"`
 	Crew    []*Person `protobuf:"bytes,21,rep,name=crew,proto3" json:"crew,omitempty"`
 }
