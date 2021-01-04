@@ -24,6 +24,15 @@ message Languages {
     string name = 3;
 }
 
+message Images {
+    repeated Image backdrops = 1;
+    repeated Image posters = 2;
+}
+
+message Image {
+    string file_path =1;
+}
+
 message RequestDetails {
     // @inject_tag: json:"id",validate:"required"
     int32 id = 1;
@@ -50,6 +59,7 @@ message ResponseDetails {
     repeated Languages spoken_languages = 15;
     string status = 16;
     string tagline = 17;
+    Images images = 18;
 }
 
 service movieService {
