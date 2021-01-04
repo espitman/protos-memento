@@ -82,7 +82,10 @@ message ResponseDetails {
     string status = 16;
     string tagline = 17;
     Images images = 18;
+    // @inject_tag: json:"-"
     Credits credits = 19;
+    repeated Person cast = 20;
+    repeated Person crew = 21;
 }
 
 service movieService {
