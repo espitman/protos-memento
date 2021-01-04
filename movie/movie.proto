@@ -45,6 +45,7 @@ message Person {
     string name = 3;
     string original_name = 4;
     string image = 5;
+     // @inject_tag: json:"-"
     string profile_path = 6;
     string character = 7;
     string job = 8;
