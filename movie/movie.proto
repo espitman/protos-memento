@@ -127,7 +127,7 @@ message ResponseDetails {
     string status = 16;
     string tagline = 17;
     Images images = 18;
-    Cast cast = 19;
+    Credits credits = 19;
 }
 
 service movieService {
