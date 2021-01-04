@@ -36,6 +36,7 @@ message Image {
 
 message Credits {
     repeated Person cast = 1;
+    // @inject_tag: json:"-"
     repeated Person crew = 2; 
 }
 
