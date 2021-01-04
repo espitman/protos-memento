@@ -33,27 +33,6 @@ message Image {
     string file_path =1;
 }
 
-message TMDBCredits {
-    repeated TMDBCast cast = 1;
-    repeated TMDBCrew crew = 2; 
-}
-
-message TMDBCast {
-    int32 id = 1;
-    int32 gender = 2;
-    string name = 3;
-    string original_name = 4;
-    string profile_path = 5;
-    string character = 6;
-}
-
-message TMDBCrew {
-    int32 id = 1;
-    int32 gender = 2;
-    string name = 3;
-    string original_name = 4;
-    string job = 5;
-}
 
 message Credits {
     repeated Cast cast = 1;
@@ -85,27 +64,6 @@ message RequestDetails {
     bool full = 2;
 }
 
-message TMDBDetails {
-    int32 id = 1;
-    string title = 2;
-    string backdrop_path = 3;
-    string poster_path = 4;
-    repeated Genres genres = 5;
-    int64 budget = 6;
-    string imdb_id = 7;
-    string original_language = 8;
-    string original_title = 9;
-    string overview = 10;
-    repeated Companies production_companies = 11;
-    repeated Countries production_countries = 12;
-    string release_date = 13;
-    int32 runtime = 14;
-    repeated Languages spoken_languages = 15;
-    string status = 16;
-    string tagline = 17;
-    Images images = 18;
-    TMDBCredits credits = 19;
-}
 
 
 message ResponseDetails {
