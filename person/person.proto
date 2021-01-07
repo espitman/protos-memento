@@ -48,11 +48,11 @@ message ResponseDetails {
     string place_of_birth = 8;
     string profile_path = 9;
     string avatar = 10;
-
-    Images images = 18;
-    Credits combined_credits = 19;
-    repeated Movie cast = 20;
-    repeated Movie crew = 21;
+    Images images = 11;
+    Credits combined_credits = 12;
+    repeated Movie cast = 13;
+    repeated Movie crew = 14;
+    string job = 15;
 }
 
 service personService {
