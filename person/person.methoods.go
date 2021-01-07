@@ -1,4 +1,4 @@
-package Movie
+package person
 
 import "encoding/json"
 
