@@ -12,6 +12,30 @@ message RequestDetails {
 
 
 
+message Images {
+    repeated Image profiles = 1;
+}
+
+message Image {
+    string file_path =1;
+}
+
+message Credits {
+    repeated Person cast = 1;
+    repeated Person crew = 2; 
+}
+
+message Person {
+    int32 id = 1;
+    int32 gender = 2;
+    string name = 3;
+    string original_name = 4;
+    string image = 5;
+    string profile_path = 6;
+    string character = 7;
+    string job = 8;
+}
+
 message ResponseDetails {
     int32 id = 1;
     string name = 2;
@@ -23,7 +47,11 @@ message ResponseDetails {
     string place_of_birth = 8;
     string profile_path = 9;
     string avatar = 10;
-   
+
+    Images images = 18;
+    Credits combined_credits = 19;
+    repeated Person cast = 20;
+    repeated Person crew = 21;
 }
 
 service personService {
