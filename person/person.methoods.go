@@ -1,4 +1,4 @@
-package person
+package Movie
 
 import "encoding/json"
 
@@ -9,9 +9,9 @@ func (t *ResponseDetails) Unmarshal(entry interface{}) ResponseDetails {
 	return response
 }
 
-func (t *Person) Unmarshal(entry interface{}) Person {
+func (t *Movie) Unmarshal(entry interface{}) Movie {
 	obj, _ := json.Marshal(entry)
-	response := Person{}
+	response := Movie{}
 	_ = json.Unmarshal(obj, &response)
 	return response
 }
