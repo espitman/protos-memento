@@ -51,6 +51,8 @@ message ResponseDetails {
     Credits combined_credits = 19;
     repeated Person cast = 20;
     repeated Person crew = 21;
+    int32 oreder = 22;
+    float popularity = 23;
 }
 
 service personService {
