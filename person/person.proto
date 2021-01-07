@@ -21,11 +21,11 @@ message Image {
 }
 
 message Credits {
-    repeated Person cast = 1;
-    repeated Person crew = 2; 
+    repeated Movie cast = 1;
+    repeated Movie crew = 2; 
 }
 
-message Person {
+message Movie {
     int32 id = 1;
     string title = 3;
     string original_title = 4;
@@ -33,6 +33,8 @@ message Person {
     string poster_path = 6;
     string release_date = 7;
     string media_type = 8;
+    int32 oreder = 9;
+    float popularity = 10;
 }
 
 message ResponseDetails {
@@ -49,10 +51,8 @@ message ResponseDetails {
 
     Images images = 18;
     Credits combined_credits = 19;
-    repeated Person cast = 20;
-    repeated Person crew = 21;
-    int32 oreder = 22;
-    float popularity = 23;
+    repeated Movie cast = 20;
+    repeated Movie crew = 21;
 }
 
 service personService {
