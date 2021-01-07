@@ -99,9 +99,8 @@ type ResponseDetails struct {
 	Gender             int32  `protobuf:"varint,6,opt,name=gender,proto3" json:"gender,omitempty"`
 	KnownForDepartment string `protobuf:"bytes,7,opt,name=known_for_department,json=knownForDepartment,proto3" json:"known_for_department,omitempty"`
 	PlaceOfBirth       string `protobuf:"bytes,8,opt,name=place_of_birth,json=placeOfBirth,proto3" json:"place_of_birth,omitempty"`
-	// @inject_tag: json:",omitempty"
-	ProfilePath string `protobuf:"bytes,9,opt,name=profile_path,json=profilePath,proto3" json:",omitempty"`
-	Avatar      string `protobuf:"bytes,10,opt,name=avatar,proto3" json:"avatar,omitempty"`
+	ProfilePath        string `protobuf:"bytes,9,opt,name=profile_path,json=profilePath,proto3" json:"profile_path,omitempty"`
+	Avatar             string `protobuf:"bytes,10,opt,name=avatar,proto3" json:"avatar,omitempty"`
 }
 
 func (x *ResponseDetails) Reset() {

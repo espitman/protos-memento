@@ -21,7 +21,6 @@ message ResponseDetails {
     int32 gender = 6;
     string known_for_department = 7;
     string place_of_birth = 8;
-    // @inject_tag: json:",omitempty"
     string profile_path = 9;
     string avatar = 10;
    
