@@ -27,13 +27,12 @@ message Credits {
 
 message Person {
     int32 id = 1;
-    int32 gender = 2;
-    string name = 3;
-    string original_name = 4;
-    string image = 5;
-    string profile_path = 6;
-    string character = 7;
-    string job = 8;
+    string title = 3;
+    string original_title = 4;
+    string backdrop_path = 5;
+    string poster_path = 6;
+    string release_date = 7;
+    string media_type = 8;
 }
 
 message ResponseDetails {
