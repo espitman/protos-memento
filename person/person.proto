@@ -1,0 +1,30 @@
+syntax = "proto3";
+package person;
+
+
+message RequestDetails {
+    // @inject_tag: json:"id",validate:"required"
+    int32 id = 1;
+
+    // @inject_tag: json:"full"
+    bool full = 2;
+}
+
+
+
+message ResponseDetails {
+    int32 id = 1;
+    string name = 2;
+    string biography = 3;
+    string birthday = 4;
+    string deathday = 5;
+    int32 gender = 6;
+    string known_for_department = 7;
+    string place_of_birth = 8;
+    string profile_path = 9;
+   
+}
+
+service personService {
+    rpc Details(RequestDetails) returns (ResponseDetails) {}
+}
