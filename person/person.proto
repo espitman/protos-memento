@@ -35,6 +35,8 @@ message Movie {
     string media_type = 8;
     int32 oreder = 9;
     float popularity = 10;
+    string character = 11;
+    string job = 12;
 }
 
 message ResponseDetails {
