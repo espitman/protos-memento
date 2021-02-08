@@ -1,0 +1,37 @@
+syntax = "proto3";
+package user;
+
+
+message RequestRegisger {
+    // @inject_tag: json:"email",validate:"required"
+    string email = 1;
+
+   // @inject_tag: json:"password",validate:"required"
+   string password = 2;
+
+    // @inject_tag: json:"fname",validate:"required"
+    string fname = 3;
+
+    // @inject_tag: json:"lname",validate:"required"
+    string lname = 4;
+}
+
+message RequestLogin {
+    // @inject_tag: json:"email",validate:"required"
+    string email = 1;
+
+   // @inject_tag: json:"password",validate:"required"
+   string password = 2;
+}
+
+message ResponseDetails {
+    int32 id = 1;
+    string email = 2;
+    string fname = 3;
+    string lname = 4;
+}
+
+service userService {
+    rpc Register(RequestRegisger) returns (ResponseDetails) {}
+    rpc Lgoin(RequestLogin) returns (ResponseDetails) {}
+}
