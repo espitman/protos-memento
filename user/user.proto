@@ -33,5 +33,5 @@ message ResponseDetails {
 
 service userService {
     rpc Register(RequestRegisger) returns (ResponseDetails) {}
-    rpc Lgoin(RequestLogin) returns (ResponseDetails) {}
+    rpc Login(RequestLogin) returns (ResponseDetails) {}
 }

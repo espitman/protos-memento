@@ -258,8 +258,8 @@ var file_user_user_proto_rawDesc = []byte{
 	0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12, 0x15, 0x2e, 0x75, 0x73, 0x65,
 	0x72, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x65, 0x67, 0x69, 0x73, 0x67, 0x65,
 	0x72, 0x1a, 0x15, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x05, 0x4c, 0x67,
-	0x6f, 0x69, 0x6e, 0x12, 0x12, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00, 0x12, 0x34, 0x0a, 0x05, 0x4c, 0x6f,
+	0x67, 0x69, 0x6e, 0x12, 0x12, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x1a, 0x15, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x2e, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x00,
 	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
@@ -285,9 +285,9 @@ var file_user_user_proto_goTypes = []interface{}{
 }
 var file_user_user_proto_depIdxs = []int32{
 	0, // 0: user.userService.Register:input_type -> user.RequestRegisger
-	1, // 1: user.userService.Lgoin:input_type -> user.RequestLogin
+	1, // 1: user.userService.Login:input_type -> user.RequestLogin
 	2, // 2: user.userService.Register:output_type -> user.ResponseDetails
-	2, // 3: user.userService.Lgoin:output_type -> user.ResponseDetails
+	2, // 3: user.userService.Login:output_type -> user.ResponseDetails
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -371,7 +371,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type UserServiceClient interface {
 	Register(ctx context.Context, in *RequestRegisger, opts ...grpc.CallOption) (*ResponseDetails, error)
-	Lgoin(ctx context.Context, in *RequestLogin, opts ...grpc.CallOption) (*ResponseDetails, error)
+	Login(ctx context.Context, in *RequestLogin, opts ...grpc.CallOption) (*ResponseDetails, error)
 }
 
 type userServiceClient struct {
@@ -391,9 +391,9 @@ func (c *userServiceClient) Register(ctx context.Context, in *RequestRegisger, o
 	return out, nil
 }
 
-func (c *userServiceClient) Lgoin(ctx context.Context, in *RequestLogin, opts ...grpc.CallOption) (*ResponseDetails, error) {
+func (c *userServiceClient) Login(ctx context.Context, in *RequestLogin, opts ...grpc.CallOption) (*ResponseDetails, error) {
 	out := new(ResponseDetails)
-	err := c.cc.Invoke(ctx, "/user.userService/Lgoin", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user.userService/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -403,7 +403,7 @@ func (c *userServiceClient) Lgoin(ctx context.Context, in *RequestLogin, opts ..
 // UserServiceServer is the server API for UserService service.
 type UserServiceServer interface {
 	Register(context.Context, *RequestRegisger) (*ResponseDetails, error)
-	Lgoin(context.Context, *RequestLogin) (*ResponseDetails, error)
+	Login(context.Context, *RequestLogin) (*ResponseDetails, error)
 }
 
 // UnimplementedUserServiceServer can be embedded to have forward compatible implementations.
@@ -413,8 +413,8 @@ type UnimplementedUserServiceServer struct {
 func (*UnimplementedUserServiceServer) Register(context.Context, *RequestRegisger) (*ResponseDetails, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
-func (*UnimplementedUserServiceServer) Lgoin(context.Context, *RequestLogin) (*ResponseDetails, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Lgoin not implemented")
+func (*UnimplementedUserServiceServer) Login(context.Context, *RequestLogin) (*ResponseDetails, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 
 func RegisterUserServiceServer(s *grpc.Server, srv UserServiceServer) {
@@ -439,20 +439,20 @@ func _UserService_Register_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_Lgoin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestLogin)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).Lgoin(ctx, in)
+		return srv.(UserServiceServer).Login(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/user.userService/Lgoin",
+		FullMethod: "/user.userService/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Lgoin(ctx, req.(*RequestLogin))
+		return srv.(UserServiceServer).Login(ctx, req.(*RequestLogin))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -466,8 +466,8 @@ var _UserService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_Register_Handler,
 		},
 		{
-			MethodName: "Lgoin",
-			Handler:    _UserService_Lgoin_Handler,
+			MethodName: "Login",
+			Handler:    _UserService_Login_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
