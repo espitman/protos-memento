@@ -25,7 +25,7 @@ message RequestLogin {
 }
 
 message ResponseDetails {
-    int32 id = 1;
+    string id = 1;
     string email = 2;
     string fname = 3;
     string lname = 4;
