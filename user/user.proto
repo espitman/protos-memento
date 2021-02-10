@@ -3,7 +3,7 @@ package user;
 
 
 message RequestRegisger {
-    // @inject_tag: json:"email",validate:"required"
+    // @inject_tag: json:"email",validate:"required,email"
     string email = 1;
 
    // @inject_tag: json:"password",validate:"required"

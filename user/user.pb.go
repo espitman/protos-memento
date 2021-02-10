@@ -34,8 +34,8 @@ type RequestRegisger struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @inject_tag: json:"email",validate:"required"
-	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email" validate:"required"`
+	// @inject_tag: json:"email",validate:"required,email"
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email" validate:"required,email"`
 	// @inject_tag: json:"password",validate:"required"
 	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password" validate:"required"`
 	// @inject_tag: json:"fname",validate:"required"
