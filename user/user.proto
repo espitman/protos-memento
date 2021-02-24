@@ -24,6 +24,13 @@ message RequestLogin {
    string password = 2;
 }
 
+message RequestVerify {
+    // @inject_tag: json:"token",validate:"required"
+    string token = 1;
+}
+
+
+
 message ResponseDetails {
     string id = 1;
     string email = 2;
