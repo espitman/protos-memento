@@ -29,8 +29,6 @@ message RequestVerify {
     string token = 1;
 }
 
-
-
 message ResponseDetails {
     string id = 1;
     string email = 2;
@@ -39,8 +37,13 @@ message ResponseDetails {
     string token = 5;
 }
 
+message VerifyResponseDetails {
+    string id = 1;
+}
+
+
 service userService {
     rpc Register(RequestRegisger) returns (ResponseDetails) {}
     rpc Login(RequestLogin) returns (ResponseDetails) {}
-    rpc Verify(RequestVerify) returns (ResponseDetails) {}
+    rpc Verify(RequestVerify) returns (VerifyResponseDetails) {}
 }
