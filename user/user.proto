@@ -42,4 +42,5 @@ message ResponseDetails {
 service userService {
     rpc Register(RequestRegisger) returns (ResponseDetails) {}
     rpc Login(RequestLogin) returns (ResponseDetails) {}
+    rpc Verify(RequestVerify) returns (ResponseDetails) {}
 }
