@@ -29,6 +29,7 @@ message ResponseDetails {
     string email = 2;
     string fname = 3;
     string lname = 4;
+    string token = 5;
 }
 
 service userService {
